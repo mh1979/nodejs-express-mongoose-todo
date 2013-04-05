@@ -1,12 +1,29 @@
 {
-  "name": "application-name",
+  "name": "ToDoDemo",
+  "description": "A demo app in nodejs illustrating use of express, jade and mogoose",
   "version": "0.0.1",
   "private": true,
+  "author": "Huang Xiaojie<huangxiaojie@email.com>",
   "scripts": {
-    "start": "node app"
+    "start": "nodemon server.js"
   },
   "dependencies": {
-    "express": "latest",
-    "jade": "latest"
+    "express": "latest"
+    , "jade": "latest"
+    , "mongoose": "latest"
+    , "connect-mongo": "latest"
+    , "connect-flash": "latest"
+    , "passport": "latest"
+    , "passport-local": "latest"
+    , "passport-facebook": "latest"
+    , "passport-twitter": "latest"
+    , "passport-github": "latest"
+    , "passport-google-oauth": "latest"
+    , "imager": "latest"
+    , "underscore": "latest"
+    , "gzippo": "latest"
+    , "async": "latest"
+    , "nodemon": "latest"
+    , "dateformat": "latest"
   }
 }

@@ -1,0 +1,63 @@
+extends ../layouts/default
+
+block main
+  h1 ToDo List
+
+block content
+  #conetnt
+  if (typeof errors !== 'undefined' && errors.length > 0)
+    .fade.in.alert.alert-block.alert-error
+      a.close(data-dismiss="alert", herf="javascript:void(0)") x
+      ul
+        each error in errors
+          li= error.type
+  form.addnew(action='/todos/new', name='Add a Todo', method='post')
+    input#addnew.input-xlarge(type='text', name="title", placeholder='Add a ToDo')
+
+  br
+  ul#todolist.unstyled
+    each todo in todos
+      li.todoitem(id= todo.id, data-id= todo.id)
+        .todo
+          i.icon-hand-right
+          &nbsp;&nbsp;
+          - if (todo.done)
+            span.todotitle.done= todo.title
+          - else
+            span.todotitle= todo.title
+          .offset1
+            span.operation
+              a.done(href='javascript:void(0)', data-href='/todos/' + todo.id + '/done', title='done')
+                i.icon-check
+              &nbsp;                         
+              a.edit(href='javascript:void(0)', title='edit')
+                i.icon-edit                    
+              &nbsp;
+              a.delete(href='/todos/' + todo.id + '/destroy', title='delete')
+                i.icon-trash      
+        .todoedit
+          form.edit()
+            .control-group
+              label.control-label(for='title') ToDo
+              .controls
+                input#title.input-xlarge(type='text', name='title', value=todo.title)
+            .control-group                
+              label.control-label(for='deadline') Deadline
+                .controls
+                  #datetimepicker.input-append.date
+                    input#deadline.input-xlarge(type='text', name='deadline', value=formatDate(todo.deadline, 'yyyy/mm/dd HH:MM:ss'))
+                    span.add-on 
+                      i(data-time-icon="icon-time",data-date-icon="icon-calendar")
+            .control-group
+              label.control-label(for='memo') Memo
+              .controls
+              textarea#memo.input-xlarge(type='text', rows= 5, name='memo')= todo.memo
+            .form-action
+              a#savechanges.btn.btn-primary(href='javascript:void(0)', title="Save changes") Save chagnes
+              &nbsp;
+              a#cancel.btn(href='javascript:void(0)', title="cancel") Cancel
+  if (pages > 1)
+    .pagination
+      ul
+        != createPagination(pages, page)
+
