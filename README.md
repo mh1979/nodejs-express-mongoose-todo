@@ -1,5 +1,9 @@
 #TODO Web应用介绍#
 
+##概要##
+
+TODO 网页应用是是使用nodejs与mongodb的一个练习项目。整个项目是参考[madhums nodejs-express-mongoogse-demo](https://github.com/madhums/nodejs-express-mongoose-demo.git)这个项目。
+
 ##功能介绍##
 
 1. 用户的注册，登录和注销。
@@ -7,22 +11,8 @@
 
 ##结构介绍##
 
-使用Express命令所生成的结构为
-```
-  -public/
-    |__images/
-    |__javascript/
-    |__stylesheets/
-  -routes/
-    |__index.js
-    |__user.js
-  -views/
-    |__index.jade
-    |__layout.jade
-  -app.js
-  -package.json
-```
 在这次练习中对默认生成的结构进行修改成下面这样。
+
 ```
   -app/
     |__controllers
@@ -40,46 +30,34 @@
     |_js/
   -test/ (单元测试)
   -package.json
-  -server.js 
+  -server.js
 ```
 
 #TODO Web应用开发#
+
 ##修改pakcage.json##
 
-修改package.json中的应用信息与引用其他库的信息。加入express, jade, mongoose,passport等主要模块。
+修改package.json中的应用信息与引用其他库的信息。添加了以下模块：
+  1. express
+  2. jade
+  3. mongoose
+  4. conncet-mongose
+  5. connect-flash
+  6. password
+  7. password-local
+  8. password-facebook
+  9. password-twitter
+  10. password-github
+  11. password-google-oauth
+  12. underscore
+  13. gzippo
+  14. async
+  15. nodemon
+  16. dateformat
 
-```json
-{
-  "name": "ToDo Web App", // 应用名称
-  "description": "A demo app", // 应用的描述
-  "version": "0.0.1",     // 应用开发版本号
-  "private": true,
-  "author": "Huang Xiaojie<huangxiaojie@email.com>", // 开发者信息
-  "scripts": {
-    "start": "nodemon server.js"
-  },
-  "dependencies": {
-    "express": "latest",   // express模块
-    , "jade": "latest"     // jade模版模块
-    , "mongoose":"latest"  // mongodb模块
-    , "connect-mongo": "latest" // connect的mongo模块
-    , "connect-flash": "latest" // connect的flash模块
-    , "passport": "latest"      // passport模块
-    , "passport-local": "latest" // passport的本地用户模块
-    , "passport-facebook": "latest" // passport的facebook模块
-    , "passport-twitter": "latest"  // passport的twitter模块
-    , "passport-github": "latest"   // passport的github模块
-    , "passport-google-oauth": "latest" // passport的google-oauth模块
-    , "underscore": "latest"
-    , "gzippo": "latest"     
-    , "async": "latest"
-    , "nodemon": "latest"
-    , "view-helpers": "latest"
-  }
-}
-```
 
 ##编辑server.js##
+
   1. 添加mongodb链接信息。
   2. 导入应用的数据模块，使用fs库读入app/models下的mongoose的Schema。
   3. 导入passport模块设置。
@@ -298,8 +276,8 @@ Schema的save的前置挂钩函数。
 
 ### todos.js ###
 模块输出函数
-  - todo:　用ｉｄ搜寻ｔｏｄｏ信息
-  - new：　跳转到新建ｔｏｄｏ页面
+  - todo:　用ｉｄ搜寻todo信息
+  - new：　跳转到新建todo页面
   - create: 新建todo并跳转到todo显示页面
   - edit: 跳转到编辑todo页面
   - update： 更新update跳转到todo显示页面
@@ -325,7 +303,7 @@ views中的文件结构如下:
     |__show.jade    // 用户信息显示
     |__signup.jade  // 注册用户
   -includes\
-    |__foot.jade    
+    |__foot.jade
     |__footer.jade
     |__head.jade
     |__header.jade
