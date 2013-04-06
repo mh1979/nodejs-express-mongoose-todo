@@ -58,8 +58,8 @@ TodoSchema.statics = {
   * @api public
   **/
   list: function (options, cb) {
-    var criteria = options.criteria || {};
-    this.find(criteria)
+    // var criteria = options.criteria || {};
+    this.find({user: options.user})
       .populate('user', 'name')
       .sort({'createdAt': -1}) // sort by date
       .limit(options.perPage)

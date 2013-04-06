@@ -32,7 +32,7 @@ exports.todo = function (req, res, next, id) {
 exports.create = function (req, res) {
   var todo = new Todo(req.body);
   todo.user = req.user;
-  todo.save(function (err) {    
+  todo.save(function (err) {
     res.redirect('/todos');
   });
 };
@@ -93,15 +93,15 @@ exports.index = function (req, res) {
   var options = {
     perPage: perPage,
     page: page,
-    user: user
+    user: user.id
   };
 
   getTodoList(options, function (err, todos, count) {
-      res.render('todos/index', {
-        title: 'ToDo List',
-        todos: todos,
-        page: page,
-        pages: count / perPage
+    res.render('todos/index', {
+      title: 'ToDo List',
+      todos: todos,
+      page: page,
+      pages: count / perPage
     });
   });
 };

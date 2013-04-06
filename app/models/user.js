@@ -17,7 +17,7 @@ var UserSchema = new Schema({
   name: String,
   email: String,
   username: String,
-  privoider: String,
+  provider: String,
   hashed_password: String,
   salt: String,
   facebook: {},
@@ -133,4 +133,4 @@ UserSchema.methods = {
 
 mongoose.model('User', UserSchema);
 
-   
+

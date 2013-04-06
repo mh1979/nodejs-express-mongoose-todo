@@ -32,7 +32,7 @@ exports.user = {
 exports.todo = {
     hasAuthorization : function (req, res, next) {
       if (req.todo.user.id != req.user.id) {
-        return res.redirect('/todo/')
+        return res.redirect('/login')
       }
       next()
     }

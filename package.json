@@ -4,8 +4,12 @@
   "version": "0.0.1",
   "private": true,
   "author": "Huang Xiaojie<huangxiaojie@email.com>",
+  "engines": {
+      "node": "0.8.14"
+    , "npm": "1.1.65"
+  },
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "./node_modules/.bin/nodemon server.js"
   },
   "dependencies": {
     "express": "latest"
