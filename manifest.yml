@@ -1,0 +1,14 @@
+--- 
+applications: 
+- runtime: node08
+  instances: 5
+  path: .
+  url: todo.${target-base}
+  name: todo
+  services: 
+    mongodb-d25c0: 
+      vendor: mongodb
+      tier: free
+      version: "2.0"
+  memory: 256M
+  framework: node

@@ -25,28 +25,28 @@ block content
             span.todotitle.done= todo.title
           - else
             span.todotitle= todo.title
-          .offset1
-            span.operation
-              a.done(href='javascript:void(0)', data-href='/todos/' + todo.id + '/done', title='done')
-                i.icon-check
-              &nbsp;                         
-              a.edit(href='javascript:void(0)', title='edit')
-                i.icon-edit                    
-              &nbsp;
-              a.delete(href='/todos/' + todo.id + '/destroy', title='delete')
-                i.icon-trash      
+          span.operation
+            &nbsp;&nbsp;
+            a.done(href='javascript:void(0)', data-href='/todos/' + todo.id + '/done', title='done')
+              i.icon-check
+            &nbsp;
+            a.edit(href='javascript:void(0)', title='edit')
+              i.icon-edit
+            &nbsp;
+            a.delete(href='/todos/' + todo.id + '/destroy', title='delete')
+              i.icon-trash
         .todoedit
           form.edit()
             .control-group
               label.control-label(for='title') ToDo
               .controls
                 input#title.input-xlarge(type='text', name='title', value=todo.title)
-            .control-group                
+            .control-group
               label.control-label(for='deadline') Deadline
                 .controls
                   #datetimepicker.input-append.date
                     input#deadline.input-xlarge(type='text', name='deadline', value=formatDate(todo.deadline, 'yyyy/mm/dd HH:MM:ss'))
-                    span.add-on 
+                    span.add-on
                       i(data-time-icon="icon-time",data-date-icon="icon-calendar")
             .control-group
               label.control-label(for='memo') Memo

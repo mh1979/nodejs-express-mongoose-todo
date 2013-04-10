@@ -26,7 +26,6 @@ module.exports = {
         , clientSecret: "APP_SECRET"
         , callbackURL: "http://localhost:3000/auth/google/callback"
       },
-      realm: 'http://localhost:3000'
     }
   , test: {
 

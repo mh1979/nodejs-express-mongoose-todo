@@ -96,12 +96,16 @@ exports.index = function (req, res) {
     user: user.id
   };
 
-  getTodoList(options, function (err, todos, count) {
-    res.render('todos/index', {
-      title: 'ToDo List',
-      todos: todos,
-      page: page,
-      pages: count / perPage
+  Todo.list(options, function (err, todos) {
+    if (err) return res.render('500');
+
+    Todo.count({user: options.user}).exec(function (err, count) {
+      res.render('todos/index', {
+        title: 'ToDo List',
+        todos: todos,
+        page: page,
+        pages: count / perPage
+      });
     });
   });
 };

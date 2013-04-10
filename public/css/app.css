@@ -48,6 +48,8 @@ a.tag {
 }
 
 .operation{
+  margin-top: 10px;
+  margin-bottom: 10px;
   display:none;
 }
 
@@ -55,6 +57,10 @@ form.edit{
   display:none;
 }
 
+.todoitem{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 .todotitle{
   font-size: 18px;
 }
@@ -66,7 +72,7 @@ form.edit{
 
 .done{
   color: #808080;
-  text-decoration : line-through ; 
+  text-decoration : line-through ;
 }
 .forkme{
 position: absolute; top: 0; left: 0; border: 0;
